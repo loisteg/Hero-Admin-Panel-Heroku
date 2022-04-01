@@ -28,7 +28,7 @@ const HeroesAddForm = () => {
             element: heroElement
         }
 
-        request("http://localhost:8000/heroes", "POST", JSON.stringify(newHero))
+        request("https://heroadminpanelproject.herokuapp.com/api/heroes", "POST", JSON.stringify(newHero))
             .then(res => console.log(res, 'Отправка успешна'))
             .then(dispatch(heroCreated(newHero)))
             .catch(err => console.log(err));

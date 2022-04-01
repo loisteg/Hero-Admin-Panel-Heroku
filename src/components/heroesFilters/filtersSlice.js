@@ -12,7 +12,7 @@ export const fetchFilters = createAsyncThunk(
     'filters/fetchFilters',
     () => {
         const {request} = useHttp();
-        return request("http://localhost:8000/filters");
+        return request("https://heroadminpanelproject.herokuapp.com/api/filters");
     }
 )
 
