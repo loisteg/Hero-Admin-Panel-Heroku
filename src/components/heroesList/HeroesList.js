@@ -37,9 +37,7 @@ const HeroesList = () => {
 
     const renderHeroesList = (arr) => {
         if (arr.length === 0) {
-            return <CSSTransition  timeout={0} classNames="hero">
-                    <h5 className="text-center mt-5">Героев пока нет</h5>
-                </CSSTransition>
+            return <h5 className="text-center mt-5">Героев пока нет</h5>
             
         }
 
