@@ -23,7 +23,7 @@ const HeroesList = () => {
     }, []);
 
     const onDelete = useCallback((id) => {
-        request(`https://heroadminpanelproject.herokuapp.com/api/heroes/${id}`, "DELETE")
+        request(`http://localhost:3001/heroes/${id}`, "DELETE")
             .then(data => console.log(data, 'Deleted'))
             .then(dispatch(heroDeleted(id)))
             .catch(err => console.log(err))
