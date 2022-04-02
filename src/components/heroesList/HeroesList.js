@@ -1,7 +1,6 @@
 import {useHttp} from '../../hooks/http.hook';
 import { useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { CSSTransition, TransitionGroup} from 'react-transition-group';
 
 import {heroDeleted, fetchHeroes, filteredHeroesSelector} from "./heroesSlice"
 
@@ -45,17 +44,15 @@ const HeroesList = () => {
         }
 
         return arr.map(({id, ...props}) => {
-            return <CSSTransition key={id} timeout={1000} classNames="hero">
-                        <HeroesListItem {...props} onDelete={() => onDelete(id)}/>
-                    </CSSTransition>
+            return <HeroesListItem {...props} onDelete={() => onDelete(id)}/>
         })
     }
 
     const elements = renderHeroesList(filteredHeroes);
     return (
-        <TransitionGroup component="ul">
+        <ul>
             {elements}
-        </TransitionGroup>
+        </ul>     
     )
 }
 
