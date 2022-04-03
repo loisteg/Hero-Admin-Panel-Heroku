@@ -29,7 +29,6 @@ const heroesSlice = createSlice({
             })
             .addCase(fetchHeroes.fulfilled, (state, action) => {
                 state.heroesLoadingStatus = 'idle';
-                console.log(action.payload)
                 heroesAdapter.setAll(state, action.payload.heroes);
             })
             .addCase(fetchHeroes.rejected, state => {
@@ -49,7 +48,6 @@ export const filteredHeroesSelector = createSelector(
     (state) => state.filters.activeFilter,
     selectAll,
     (filter, heroes) => {
-        console.log(heroes)
         if (filter === 'all') {
             return heroes;
         } else {

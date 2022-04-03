@@ -28,10 +28,12 @@ const HeroesAddForm = () => {
             element: heroElement
         }
 
-        request("https://heroadminpanelbackendapi.herokuapp.com/heroes/heroes", "POST", JSON.stringify(newHero))
-            .then(res => console.log(res, 'Отправка успешна'))
-            .then(dispatch(heroCreated(newHero)))
-            .catch(err => console.log(err));
+        // request("https://heroadminpanelbackendapi.herokuapp.com/heroes/heroes", "POST", JSON.stringify(newHero))
+        //     .then(res => console.log(res, 'Отправка успешна'))
+        //     .then(
+                dispatch(heroCreated(newHero))
+            //     )
+            // .catch(err => console.log(err));
 
         setHeroName('');
         setHeroDescr('');
