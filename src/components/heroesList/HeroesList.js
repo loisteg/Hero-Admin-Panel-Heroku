@@ -24,8 +24,9 @@ const HeroesList = () => {
     const onDelete = useCallback((id) => {
         // request(`https://heroadminpanelbackendapi.herokuapp.com/heroes/${id}`, "DELETE")
         //     .then(data => console.log(data, 'Deleted'))
-            // .then
-            (dispatch(heroDeleted(id)))
+            // .then(
+                dispatch(heroDeleted(id))
+                // )
             // .catch(err => console.log(err))
         // eslint-disable-next-line
     }, [request])
