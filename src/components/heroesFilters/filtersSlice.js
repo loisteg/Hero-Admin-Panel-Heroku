@@ -12,7 +12,7 @@ export const fetchFilters = createAsyncThunk(
     'filters/fetchFilters',
     () => {
         const {request} = useHttp();
-        return request("http://localhost:3001/filters");
+        return request("https://heroadminpanelbackendapi.herokuapp.com/filters");
     }
 )
 
@@ -29,8 +29,8 @@ const filtersSlice = createSlice({
                 state.filtersLoadingStatus = 'loading'
             })
             .addCase(fetchFilters.fulfilled, (state, action) => {
-                state.filtersLoadingStatus = 'idle'; 
-                filtersAdapter.setAll(state, action.payload);
+                state.filtersLoadingStatus = 'idle';
+                filtersAdapter.setAll(state, action.payload.filters);
             })
             .addCase(fetchFilters.rejected, state => {
                 state.filtersLoadingStatus = 'error'

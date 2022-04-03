@@ -11,7 +11,7 @@ export const fetchHeroes = createAsyncThunk(
     'heroes/fetchHeroes',
     () => {
         const {request} = useHttp();
-        return request("http://localhost:3001/heroes");
+        return request("https://heroadminpanelbackendapi.herokuapp.com/heroes");
     }
 )
 
@@ -28,8 +28,9 @@ const heroesSlice = createSlice({
                 state.heroesLoadingStatus = 'loading'
             })
             .addCase(fetchHeroes.fulfilled, (state, action) => {
-                state.heroesLoadingStatus = 'idle'; 
-                heroesAdapter.setAll(state, action.payload)
+                state.heroesLoadingStatus = 'idle';
+                console.log(action.payload)
+                heroesAdapter.setAll(state, action.payload.heroes);
             })
             .addCase(fetchHeroes.rejected, state => {
                 state.heroesLoadingStatus = 'error'
@@ -48,6 +49,7 @@ export const filteredHeroesSelector = createSelector(
     (state) => state.filters.activeFilter,
     selectAll,
     (filter, heroes) => {
+        console.log(heroes)
         if (filter === 'all') {
             return heroes;
         } else {

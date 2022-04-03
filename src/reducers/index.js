@@ -16,7 +16,7 @@ const reducer = (state = initialState, action) => {
         case 'HEROES_FETCHED':
             return {
                 ...state,
-                heroes: action.payload,
+                heroes: {...action.payload},
                 heroesLoadingStatus: 'idle'
             }
         case 'HEROES_FETCHING_ERROR':
